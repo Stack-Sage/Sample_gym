@@ -1,6 +1,5 @@
 import { PhoneSvg } from "@/assets";
 import { contactInfo } from "@/data";
-import { sendEmail } from "@/utils";
 import { motion, useInView } from "framer-motion";
 import { type FormEvent, useRef, useState } from "react";
 

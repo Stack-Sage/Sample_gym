@@ -50,8 +50,9 @@ export const Trainers = ({ data }: TrainersProps) => {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         {data.trainers.map((t, i) => {
-          const chosen = changeImages[i % changeImages.length];
-          const candidates = [chosen, fallbackImg];
+          // Ensure a definite string even with noUncheckedIndexedAccess
+          const chosen = changeImages[i % changeImages.length] ?? fallbackImg;
+          const candidates: string[] = [chosen, fallbackImg];
 
           return (
             <motion.div

@@ -32,7 +32,7 @@ export const Navbar = ({ name }: NavbarProps) => {
           animate={{ opacity: 1, y: 0 }}
           className="font-bold text-white uppercase tracking-wide text-sm md:text-base"
         >
-          {name || "Gym Name"}
+          {name ?? "Gym Name"}
         </motion.span>
 
         {/* Desktop menu */}

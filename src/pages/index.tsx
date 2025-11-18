@@ -68,6 +68,7 @@ const Trainers = ({ data }: { data: typeof gymContent }) => {
             className="bg-gray-900/50 w-full rounded-2xl overflow-hidden border border-gray-700 hover:border-orange-500 transition-colors flex flex-col"
           >
             <div className="relative h-56 md:h-64">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images[i % images.length]}
                 alt={t.name}
@@ -127,6 +128,7 @@ const Gallery = ({ data }: { data: typeof gymContent }) => {
             key={src + i}
             className="relative h-48 md:h-56 rounded-xl overflow-hidden group bg-gray-800"
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={src}
               alt={`gallery-${i}`}

@@ -14,23 +14,7 @@ const defaultSamples = [
   "/assets/default/boy2.jpg",
 ];
 const changeSet = [1, 2, 3, 4, 5, 6].map(n => `/assets/change/${n}.jpg`);
-const fallback = "/assets/default/trainer.jpg";
-
-const FallbackImage = ({ sources, alt }: { sources: string[]; alt: string }) => {
-  const [idx, setIdx] = useState(0);
-  const fallback = "/assets/default/trainer.jpg";
-  return (
-    <Image
-      src={sources[idx] || fallback} // fixed: always a string
-      alt={alt}
-      fill
-      onError={() => setIdx(i => Math.min(i + 1, sources.length - 1))}
-      sizes="(max-width:768px) 100vw, 33vw"
-      className="object-cover group-hover:scale-105 transition-transform duration-500"
-      decoding="async"
-    />
-  );
-};
+const fallbackImg = "/assets/default/trainer.jpg";
 
 export const Gallery = ({ data }: GalleryProps) => {
   const content = (data.gallery || []).filter(Boolean);
@@ -52,16 +36,15 @@ export const Gallery = ({ data }: GalleryProps) => {
       </motion.h3>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
         {slots.map(i => {
-          const candidatesRaw = [
+          const candidates = [
             content[i],
             changeSet[i],
             defaultSamples[i % defaultSamples.length],
-            fallback,
-          ];
-          const candidates = candidatesRaw.filter(
-            (v): v is string => typeof v === "string" && v.length > 0
-          ); // removes undefined
-          const srcList = candidates.length ? candidates : [fallback];
+            fallbackImg,
+          ].filter((v): v is string => typeof v === "string" && v.length > 0);
+          // candidates is guaranteed non-empty; src never undefined
+          const [initial] = candidates;
+
           return (
             <motion.figure
               key={`g-${i}`}
@@ -71,12 +54,38 @@ export const Gallery = ({ data }: GalleryProps) => {
               transition={{ delay: i * 0.05 }}
               className="relative h-48 md:h-56 w-full max-w-sm rounded-lg overflow-hidden group"
             >
-              <FallbackImage sources={srcList} alt={`gallery-${i}`} />
+              <SafeImage sources={candidates} initial={initial} alt={`gallery-${i}`} />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
             </motion.figure>
           );
         })}
       </div>
     </section>
+  );
+};
+
+const SafeImage = ({
+  sources,
+  initial,
+  alt,
+}: {
+  sources: string[];
+  initial: string;
+  alt: string;
+}) => {
+  const [idx, setIdx] = useState(0);
+  const src = sources[idx] || initial;
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      sizes="(max-width:768px) 100vw, 33vw"
+      decoding="async"
+      onError={() =>
+        setIdx(i => (i < sources.length - 1 ? i + 1 : i))
+      }
+      className="object-cover group-hover:scale-105 transition-transform duration-500"
+    />
   );
 };

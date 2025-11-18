@@ -1,7 +1,6 @@
 import { type GymContent } from "@/data/gym/content";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 interface GalleryProps {
   data: GymContent;
@@ -13,25 +12,11 @@ const defaultSamples = [
   "/assets/default/boy1.jpg",
   "/assets/default/boy2.jpg",
 ];
-
 const changeSet = [1, 2, 3, 4, 5, 6].map(n => `/assets/change/${n}.jpg`);
-
-const FallbackImage = ({ sources, alt }: { sources: string[]; alt: string }) => {
-  const [idx, setIdx] = useState(0);
-  return (
-    <Image
-      src={sources[idx]}
-      alt={alt}
-      fill
-      onError={() => setIdx(i => Math.min(i + 1, sources.length - 1))}
-      sizes="(max-width:768px) 100vw, 33vw"
-      className="object-cover group-hover:scale-105 transition-transform duration-500"
-    />
-  );
-};
+const fallback = "/assets/default/trainer.jpg";
 
 export const Gallery = ({ data }: GalleryProps) => {
-  const content = data.gallery ?? [];
+  const content = (data.gallery || []).filter(Boolean);
   const maxSlots = Math.max(
     4,
     Math.min(6, Math.max(content.length, changeSet.length, defaultSamples.length)),
@@ -54,8 +39,10 @@ export const Gallery = ({ data }: GalleryProps) => {
             content[i],
             changeSet[i],
             defaultSamples[i % defaultSamples.length],
-          ].filter(Boolean) as string[];
+            fallback,
+          ].filter((v): v is string => typeof v === "string" && v.length > 0);
 
+          const src = candidates[0];
           return (
             <motion.figure
               key={`g-${i}`}
@@ -65,7 +52,14 @@ export const Gallery = ({ data }: GalleryProps) => {
               transition={{ delay: i * 0.05 }}
               className="relative h-48 md:h-56 w-full max-w-sm rounded-lg overflow-hidden group"
             >
-              <FallbackImage sources={candidates} alt={`gallery-${i}`} />
+              <Image
+                src={src}
+                alt={`gallery-${i}`}
+                fill
+                sizes="(max-width:768px) 100vw, 33vw"
+                decoding="async"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
             </motion.figure>
           );

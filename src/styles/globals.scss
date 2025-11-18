@@ -4,11 +4,23 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 17px;
+  }
 }
 
 body {
   background: radial-gradient(circle at top left, #0d0d0f, #000);
-  color: #f3f4f6; /* slightly brighter than pure white for readability on dark bg */
+  color: #f3f4f6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -16,5 +28,5 @@ body {
 }
 
 section {
-  @apply py-16;
+  @apply py-20;
 }

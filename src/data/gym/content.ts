@@ -34,75 +34,72 @@ export interface GymContent {
 }
 
 export const gymContent: GymContent = {
-  name: "ABS Fitness",
-  tagline: "Well-Equipped • Clean Ambience • Accessible Unisex Gym",
-  address: "Ring Road, Jafar Nagar, New Mankapur, Nagpur, Maharashtra 440013",
-  phone: "+91 88884 53205",
+  name: "Fitness World Unisex Gym",
+  tagline: "Top-notch Equipment • Motivating Atmosphere • Unisex Training",
+  address: "Jafar Nagar, New Mankapur, Nagpur, Maharashtra 440030",
+  phone: "+91 85529 49501",
   openingHours: "Mon–Sun: 6:00 AM – 10:00 PM",
   googleMapEmbedUrl:
-    "https://www.google.com/maps?q=ABS+Fitness+Ring+Road+Nagpur&output=embed",
+    "https://www.google.com/maps?q=Fitness+World+Unisex+Gym+Nagpur&output=embed",
   about:
-    "ABS Fitness (ॲब्स फिटनेस) offers a balanced training environment with well‑maintained equipment, clean workout zones, supportive staff, and accessible facilities. From strength and conditioning to general wellness, members benefit from structured guidance, online class options, and appointment-based coaching for personalized progress.",
+    "Fitness World Unisex Gym (फिटनेस वर्ल्ड यूनिसेक्स जिम) delivers a premium, motivating environment with modern machines, clean workout spaces, and a friendly, goal-driven staff. Equal focus on strength, conditioning, aesthetics, and sustainable wellness—ideal for both beginners and advanced athletes.",
   facilities: [
-    { title: "Strength & Machines", description: "Selectorized and plate-loaded equipment maintained regularly." },
-    { title: "Free Weights", description: "Dumbbells, Olympic barbells, flat & incline benches for progressive overload." },
-    { title: "Cardio Equipment", description: "Treadmills, cycles, cross-trainers for endurance & calorie burn." },
-    { title: "Functional Tools", description: "Battle ropes, kettlebells, resistance bands, mats for dynamic conditioning." },
-    { title: "Online Classes", description: "Remote instruction option for flexibility outside peak hours." },
-    { title: "Appointment Coaching", description: "Structured, appointment-required sessions for focused guidance." },
-    { title: "Clean Restroom", description: "Maintained hygiene standards for member comfort." },
-    { title: "Accessibility - Entrance", description: "Wheelchair-accessible entrance for inclusive access." },
-    { title: "Accessibility - Car Park", description: "Wheelchair-accessible car park and clear approach path." },
-    { title: "Member Support", description: "Staff offers approachable assistance; environment motivating & disciplined." },
-    { title: "Parking", description: "Free street parking available near entrance." },
-    { title: "Ambience & Maintenance", description: "Gym environment is good; machines are serviced and organized." },
-    { title: "Digital / Mobile Payments", description: "Supports modern mobile payment flows (NFC/UPI when available)." },
-    { title: "Core & Mobility Space", description: "Mats & open floor area for stretching and core work." },
+    { title: "Free Weight Zone", description: "Complete dumbbell set, Olympic barbells, calibrated plates, flat/incline benches." },
+    { title: "Strength Machines", description: "Plate-loaded & selectorized machines targeting every major muscle group." },
+    { title: "Squat & Power Racks", description: "Multiple racks with safety pins, landmine attachments & pull-up bars." },
+    { title: "Cardio Endurance", description: "Treadmills, spin bikes, air bikes, rower & elliptical for heart health and fat loss." },
+    { title: "Functional Rig", description: "TRX, resistance bands, sled, battle ropes, plyo boxes for athletic conditioning." },
+    { title: "Mobility & Stretch Zone", description: "Foam rollers, mats, bands for recovery, activation & flexibility drills." },
+    { title: "Core & Stability", description: "Medicine balls, kettlebells, ab wheels, Swiss balls for trunk development." },
+    { title: "Clean & Hygienic Space", description: "Regular sanitization, organized layout, ventilation & tidy flooring." },
+    { title: "Guided Personal Coaching", description: "Goal-based plans: fat loss, muscle gain, strength, posture & rehab basics." },
+    { title: "Accessibility", description: "Wheelchair-accessible entrance and spacious pathways." },
+    { title: "Digital Payments", description: "NFC mobile payments + standard card & UPI support." },
+    { title: "Member Support", description: "Friendly staff fostering a motivating, inclusive training atmosphere." },
   ],
   pricing: [
-    { plan: "Monthly", amount: "₹1,199" },
-    { plan: "Quarterly", amount: "₹3,399" },
-    { plan: "Half-Yearly", amount: "₹6,499" },
-    { plan: "Yearly", amount: "₹11,999" },
+    { plan: "Monthly", amount: "₹1,299" },
+    { plan: "Quarterly", amount: "₹3,599" },
+    { plan: "Half-Yearly", amount: "₹6,799" },
+    { plan: "Yearly", amount: "₹12,499" },
   ],
   trainers: [
-    { name: "Lead Instructor", speciality: "General Conditioning", image: "" },
-    { name: "Strength Guide", speciality: "Progressive Overload & Form", image: "" },
-    { name: "Wellness Coach", speciality: "Mobility & Recovery Basics", image: "" },
+    { name: "Lead Trainer", speciality: "Strength & Form Coaching", image: "" },
+    { name: "Transformation Coach", speciality: "Fat Loss & Muscle Gain", image: "" },
+    { name: "Functional Specialist", speciality: "Mobility & Conditioning", image: "" },
   ],
   // Leave empty to use /assets/change/1.jpg..6.jpg or defaults from /assets/default/
   gallery: [],
   reviews: [
     {
       author: "Review Summary",
-      rating: 4,
-      text: "Overall rating 4.0 (169 reviews) – well-equipped, clean, motivating environment.",
-    },
-    {
-      author: "Member Comment",
-      rating: 4,
-      text: "Fitness centre is well equipped and a great place to workout.",
-    },
-    {
-      author: "Ambience Feedback",
-      rating: 4,
-      text: "Gym environment is good; machines are maintained and staff is helpful.",
-    },
-    {
-      author: "Value Observation",
-      rating: 3,
-      text: "Price feels a bit high compared to amenities, but maintenance is solid.",
-    },
-    {
-      author: "Accessibility Note",
       rating: 5,
-      text: "Appreciate accessible entrance and car park – inclusive layout.",
+      text: "Great gym with top-notch equipment, friendly staff, motivating atmosphere, and variety of machines.",
+    },
+    {
+      author: "Ravikant K",
+      rating: 5,
+      text: "Electric energy—perfect environment to crush goals. You instantly feel you’re in the right place to level up.",
+    },
+    {
+      author: "Sohail Khan",
+      rating: 5,
+      text: "Well-equipped, clean workout spaces, motivating environment for men and women. Staff is friendly and supportive.",
+    },
+    {
+      author: "Member Feedback",
+      rating: 5,
+      text: "Nice gym for workout—variety of machines available to train every muscle group effectively.",
+    },
+    {
+      author: "Motivation Highlight",
+      rating: 5,
+      text: "Trainers are approachable; their guidance builds a positive long-term training mindset.",
     },
   ],
   // Optional external links to show in About
   links: [
-    { label: "Directions", url: "https://www.google.com/maps?q=ABS+Fitness+Ring+Road+Nagpur" },
-    { label: "Call", url: "tel:+918888453205" },
-    // { label: "Website", url: "" } // add when available
+    { label: "Directions", url: "https://www.google.com/maps?q=Fitness+World+Unisex+Gym+Nagpur" },
+    { label: "Call", url: "tel:+918552949501" },
   ],
 };
